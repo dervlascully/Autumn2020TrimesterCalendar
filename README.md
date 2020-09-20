@@ -18,4 +18,4 @@ Each week has an array list of days which is initialised to 5 days (monday - fri
 
 Calendar class:
 Calendar has an array of weeks initialised to 12 weeks. In generateCalendar method I initialised the 12 weeks of the semester. For each class in my schedule I constructed a temp module object and added it to each week accordingly.
-
+ 
