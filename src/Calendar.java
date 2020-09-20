@@ -3,10 +3,17 @@ import java.util.Scanner;
 
 public class Calendar {
 
+    // Array of module names to save time retyping below, could do enum either
     String[] moduleNames = {"Stats for Economists", "Data Science in Python", "Program Construction", "Probability Theory", "Introduction to AI", "Networks and Internet Systems" };
-    public Week[] weeks;
+    public Week[] weeks; // array of Weeks
+
+    public Calendar(){} // empty constructor (don't need this)
+
 
     public void generateCalendar(){
+
+        // initialise the array of 12 weeks
+
         weeks = new Week[12];
         weeks[0] = new Week(1, "21 September", "27 September");
         weeks[1] = new Week(2, "28 September", "4 October");
@@ -23,14 +30,15 @@ public class Calendar {
 
         // Mondays
 
-        // stats for economists monday 1pm
-        Module temp = new Module(moduleNames[0], 'O', 13.00, 14.50, null, 'l');
+        // stats for economists, monday 1pm to 2:50pm, Online, lecture
+        Module temp = new Module(moduleNames[0], 'O', 13.00, 14.50,  'l');
         for (Week week: weeks) {
             week.days.get(0).insertModule(temp);
         }
 
         // Tuesdays
 
+        // data science in python, tuesday 10 to 10:50, on campus in b004CSI, lecture
         temp = new Module(moduleNames[1], 'C', 10.00, 10.50, "B004 CSI", 'l');
         for (Week week: weeks) {
             week.days.get(1).insertModule(temp);
@@ -41,12 +49,12 @@ public class Calendar {
             week.days.get(1).insertModule(temp);
         }
 
-        temp = new Module(moduleNames[3], 'O', 14.00, 14.50, null, 't');
+        temp = new Module(moduleNames[3], 'O', 14.00, 14.50,  't');
         for (int i = 2; i<12; i++) {
             weeks[i].days.get(1).insertModule(temp);
         }
 
-        temp = new Module(moduleNames[4], 'O', 15.00, 15.50, null, 'l');
+        temp = new Module(moduleNames[4], 'O', 15.00, 15.50,  'l');
         for (int i = 0; i<12; i++) {
             if((i+1)%2 != 0)
                 weeks[i].days.get(1).insertModule(temp);
@@ -65,7 +73,7 @@ public class Calendar {
 
         // Wednesday
 
-        temp = new Module(moduleNames[5], 'O', 10.00, 10.50, null, 'l');
+        temp = new Module(moduleNames[5], 'O', 10.00, 10.50,  'l');
         for (int i = 0; i<12; i++) {
             if((i+1)%2 != 0)
                 weeks[i].days.get(2).insertModule(temp);
@@ -84,14 +92,14 @@ public class Calendar {
                 weeks[i].days.get(2).insertModule(temp);
         }
 
-        temp = new Module(moduleNames[0], 'O', 11.00, 11.50, null, 't');
+        temp = new Module(moduleNames[0], 'O', 11.00, 11.50,  't');
         for (int i = 0; i<11; i++) {
             int j = i+1;
             if (!(j==3 || j==1 || j==5 || j==8 || j==10))
                 weeks[i].days.get(2).insertModule(temp);
         }
 
-        temp = new Module(moduleNames[5], 'O', 17.00, 18.50, null, 'L');
+        temp = new Module(moduleNames[5], 'O', 17.00, 18.50, 'L');
         for (int i = 0; i<12; i++) {
             if((i+1)%2 == 0)
                 weeks[i].days.get(2).insertModule(temp);
@@ -105,7 +113,7 @@ public class Calendar {
 
         // Thursday
 
-        temp = new Module(moduleNames[3], 'O', 10.00, 10.50, null, 't');
+        temp = new Module(moduleNames[3], 'O', 10.00, 10.50,  't');
         for (int i = 0; i<11; i++) {
             int j = i+1;
             if (!(j == 1 || j == 8))
@@ -124,7 +132,7 @@ public class Calendar {
             week.days.get(3).insertModule(temp);
         }
 
-        temp = new Module(moduleNames[3], 'O', 13.00, 13.50, null, 't');
+        temp = new Module(moduleNames[3], 'O', 13.00, 13.50,  't');
         for (int i = 0; i<11; i++) {
             int j = i+1;
             if (!(j == 3 || j == 10))
@@ -138,14 +146,14 @@ public class Calendar {
                 weeks[i].days.get(3).insertModule(temp);
         }
 
-        temp = new Module(moduleNames[4], 'O', 16.00, 16.50, null, 'l');
+        temp = new Module(moduleNames[4], 'O', 16.00, 16.50,  'l');
         for (Week week: weeks) {
             week.days.get(3).insertModule(temp);
         }
 
         // Friday
 
-        temp = new Module(moduleNames[4], 'O', 9.00, 9.50, null, 'l');
+        temp = new Module(moduleNames[4], 'O', 9.00, 9.50, 'l');
         for (int i = 0; i<12; i++) {
             if((i+1)%2 != 0)
                 weeks[i].days.get(4).insertModule(temp);
@@ -157,12 +165,12 @@ public class Calendar {
                 weeks[i].days.get(4).insertModule(temp);
         }
 
-        temp = new Module(moduleNames[4], 'O', 10.00, 10.50, null, 'l');
+        temp = new Module(moduleNames[4], 'O', 10.00, 10.50,  'l');
         for (Week week: weeks) {
             week.days.get(4).insertModule(temp);
         }
 
-        temp = new Module(moduleNames[5], 'O', 11.00, 11.50, null, 'l');
+        temp = new Module(moduleNames[5], 'O', 11.00, 11.50,  'l');
         for (int i = 0; i<12; i++) {
             if((i+1)%2 != 0)
                 weeks[i].days.get(4).insertModule(temp);
@@ -174,7 +182,7 @@ public class Calendar {
                 weeks[i].days.get(4).insertModule(temp);
         }
 
-        temp = new Module(moduleNames[3], 'O', 14.00, 14.50, null, 't');
+        temp = new Module(moduleNames[3], 'O', 14.00, 14.50,  't');
         for (int i = 0; i<11; i++) {
             int j = i+1;
             if (!(j == 6))

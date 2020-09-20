@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Week {
 
-    public ArrayList<Day> days;
+    public ArrayList<Day> days; // each week has an array list of days
     public int weekOfSemester = 0; // week 1 - 12
     public String startDate; // date of the monday of the week
     public String endDate; // date of the friday of the week
@@ -27,7 +27,7 @@ public class Week {
         String week = "";
         week += "\nWeek " + this.weekOfSemester + ": " + this.startDate + " - " + this.endDate + "\n\n";
         for (Day day: this.days) {
-            week += day.toString();
+            week += day.toString(); // to string from day method
         }
         return week + "\n";
     }

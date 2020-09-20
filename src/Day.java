@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class Day {
 
-    public ArrayList<Module> modules;
-    public int dayOfTheWeek; // 1 - 5, Mond - Fri
-    public static String days[] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
+    public ArrayList<Module> modules; // Each day has an array list of modules - classes scheduled for that day
+    public int dayOfTheWeek; // 1 - 5, indicating Mondday - Friday
+    public static String days[] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"}; // save typing out below
 
     public Day(int dayOfTheWeek){
         setDayOfTheWeek(dayOfTheWeek);
@@ -19,13 +19,14 @@ public class Day {
     }
 
     public void insertModule(Module module){
+        // add first module of the day
         if(this.modules.isEmpty()) {
             modules.add(module);
             return;
         }
 
-//        System.out.println("hello");
         for (Module mod: modules) {
+            // add the module in correct place chronologically
             if(module.getStartTime() >= mod.getStartTime()){
                 modules.add(module);
                 break;
@@ -41,7 +42,7 @@ public class Day {
             return day + "Day Off!\n";
         day += "\n";
         for (Module mod: modules) {
-            day += mod.toString();
+            day += mod.toString(); // to string method in module class
         }
         return day + "\n";
     }

@@ -8,34 +8,50 @@ public class Module {
     public double endTine = 0;
     public String location = null; // null if online, location if on campus. Initialised to null
     public char classType = 0; // l for lecture, L for lab, t for tutorial
-    public static ArrayList<String> moduleNames = null;
 
-    public void moduleNames() {
-        moduleNames = new ArrayList<String>();
-        moduleNames.add("Stats for Economists");
-        moduleNames.add("Networks and Internet Systems");
-        moduleNames.add("Data Science in Python");
-        moduleNames.add("Program Construction");
-        moduleNames.add("Probability Theory");
-        moduleNames.add("Introduction to AI");
+//    public static ArrayList<String> moduleNames = null; // populated in moduleNames method. Used to check that a module name is a valid module
+//
+//    // populate module names array list
+//    public void moduleNames() {
+//        moduleNames = new ArrayList<>();
+//        moduleNames.add("Stats for Economists");
+//        moduleNames.add("Networks and Internet Systems");
+//        moduleNames.add("Data Science in Python");
+//        moduleNames.add("Program Construction");
+//        moduleNames.add("Probability Theory");
+//        moduleNames.add("Introduction to AI");
+//
+//    }
 
-    }
 
-
+    // Module constructor
     public Module(String moduleName, char modeOfDelivery, double startTime, double endTine, String location, char classType) {
-        moduleNames();
-        setModuleName(moduleName);
+//        moduleNames();
+//        setModuleName(moduleName);
+        this.moduleName = moduleName;
         setModeOfDelivery(modeOfDelivery);
         setStartTime(startTime);
         setEndTime(endTine);
         setLocation(location);
         setClassType(classType);
+    }
 
+    // second constructor with no 'location' - used in Calendar.java for Online classes (which have no location)
+    public Module(String moduleName, char modeOfDelivery, double startTime, double endTine, char classType) {
+//        moduleNames();
+//        setModuleName(moduleName);
+        this.moduleName = moduleName;
+        setModeOfDelivery(modeOfDelivery);
+        setStartTime(startTime);
+        setEndTime(endTine);
+        setClassType(classType);
+        this.location = null;
     }
 
 
+    // lecture, tutorial, lab, demonstration
     public void setClassType(char ch){
-        if(ch == 'l' || ch == 'L' || ch == 't')
+        if(ch == 'l' || ch == 'L' || ch == 't' || ch =='d')
             this.classType = ch;
 
         else
@@ -86,14 +102,14 @@ public class Module {
         this.endTine = time;
     }
 
-    public void setModuleName(String name){
-
-        if(moduleNames.contains(name))
-            this.moduleName = name;
-
-        else
-            throw new IllegalArgumentException("Invalid module name.");
-    }
+//    public void setModuleName(String name){
+//
+//        if(moduleNames.contains(name))
+//            this.moduleName = name;
+//
+//        else
+//            throw new IllegalArgumentException("Invalid module name.");
+//    }
 
     public String toString(){
         String module = "\n";
@@ -103,6 +119,8 @@ public class Module {
             case 'l': module += "Lecture" + "\n";
                         break;
             case 'L': module += "Lab" + "\n";
+                break;
+            case 'd':    module += "Demonstration" + "\n";
                 break;
             default: module += "Tutorial" + "\n";
                 break;
