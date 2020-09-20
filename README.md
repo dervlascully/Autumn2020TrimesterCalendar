@@ -11,5 +11,11 @@ Module class:
 Each module has a name, mode of delivery, start and end time, location, class type.
 
 Day class:
-Each day has an array list of modules. This is the schedule of modules for that day. Modules are added to the array list in the correct position chronologically. 
+Each day has an array list of modules. This is the schedule of modules for that day. Modules are added to the array list in the correct position chronologically by the insertModule method.
+
+Week class:
+Each week has an array list of days which is initialised to 5 days (monday - friday) 
+
+Calendar class:
+Calendar has an array of weeks initialised to 12 weeks. In generateCalendar method I initialised the 12 weeks of the semester. For each class in my schedule I constructed a temp module object and added it to each week accordingly.
 
