@@ -25,11 +25,25 @@ public class Day {
             return;
         }
 
-        for (Module mod: modules) {
-            // add the module in correct place chronologically
-            if(module.getStartTime() >= mod.getStartTime()){
-                modules.add(module);
-                break;
+        else if(module.getStartTime() < modules.get(0).getStartTime()){
+            modules.add(0, module);
+        }
+
+        else {
+            int size = modules.size();
+            int i = 0;
+            for (Module mod : modules) {
+                // add the module in correct place chronologically
+                if (module.getStartTime() < mod.getStartTime()) {
+                    modules.add(i, module);
+                    break;
+                }
+
+                i++;
+                if (i == size) {
+                    modules.add(module);
+                    break;
+                }
             }
         }
     }

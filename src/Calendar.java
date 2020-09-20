@@ -39,12 +39,16 @@ public class Calendar {
         // Tuesdays
 
         // data science in python, tuesday 10 to 10:50, on campus in b004CSI, lecture
-        temp = new Module(moduleNames[1], 'C', 10.00, 10.50, "B004 CSI", 'l');
+//        temp = new Module(moduleNames[1], 'C', 10.00, 10.50, "B004 CSI", 'l');
+//        for (Week week: weeks) {
+//            week.days.get(1).insertModule(temp);
+//        }
+
+        temp = new Module(moduleNames[2], 'C', 11.00, 11.50, "Science Hub F-H1.37SCH", 'l');
         for (Week week: weeks) {
             week.days.get(1).insertModule(temp);
         }
-
-        temp = new Module(moduleNames[2], 'C', 11.00, 11.50, "Science Hub F-H1.37SCH", 'l');
+        temp = new Module(moduleNames[1], 'C', 10.00, 10.50, "B004 CSI", 'l');
         for (Week week: weeks) {
             week.days.get(1).insertModule(temp);
         }
